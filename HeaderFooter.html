@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        header{
+            position:fixed;
+            top:0;
+            height:80px;
+            width:100%;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            background:linear-gradient(rgb(57, 163, 149),rgb(18, 135, 115));
+        }
+        .logo{
+            height:50px;
+            width:50px;
+            border:1.5px solid black;
+            border-radius: 5px;
+            margin-left:8px;
+            margin-right:8px;
+        }
+        .app{
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: auto;
+        }
+        .profile{
+            height:50px;
+            width:50px;
+            border:1.5px solid black;
+            border-radius: 50px;
+            margin-right:10px;
+        }
+        footer{
+            display:flex;
+            justify-content: space-between;
+            padding:10px;
+            position:fixed;
+            bottom:0;
+            height:80px;
+            width:100%;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            background:linear-gradient(rgb(57, 163, 149),rgb(18, 135, 115));
+        }
+        .footer-items{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            font-size: 24px;
+            cursor:pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+        .footer-items span:hover{
+            transform: rotate(-10deg);
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="head">
+        <img class="logo" src="logo.png" alt="Logo">
+        <span class="app">App</span>
+        <img class="profile" src="profile.png" alt="Profile">
+    </header>
+    <footer>
+        <div class="footer-items">
+            <span>🤖</span>
+            <span>🔍</span>
+            <span>🌙</span>
+            <span>⚙️</span>
+        </div>   
+    </footer>
+
+    
+</body>
+</html>

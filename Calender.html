@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            display:flex;
+            justify-content: center;
+            padding-top:50px;
+        }
+        .Calendar{
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding:20px;
+            border: 0.3px solid black;
+            border-radius: 10px;
+            height:70vmin;
+            width:70vmin;
+        }
+        .Header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .arrow{
+            cursor:pointer;
+        }
+        #Month-Year{
+            font-size: 30px;
+        }
+        .CurrentMonth{
+            font-size: 20px;
+        }
+        .CurrentYear{
+            font-size: 20px;
+            cursor:pointer
+        }
+        .Days{
+            display:grid;
+            grid-template-columns: repeat(7,1fr);
+            height:80px;
+            gap:5px;
+        }
+        .Dates{
+            display:grid;
+            grid-template-columns: repeat(7,1fr);
+            height:80px;
+            gap:5px;
+            font-size: 20px;;
+        }
+        .Days div,.Dates div{
+            margin-top: 10px;
+            padding:8px;
+            border-radius:5px;
+            text-align: center;
+            
+        }
+        .Days div{
+            font-weight: bold;
+        }
+        .Dates div:hover{
+            background-color: rgba(25, 245, 120, 0.989);
+            opacity:0.5;
+            cursor:pointer
+            
+        }
+        #displayDate,#selected{
+            text-align:center; 
+            align-items: center;
+            margin-top:170px;
+            width: 100px;
+            background-color: rgb(78, 248, 189);
+            opacity:0.8;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="Calendar">    <!--Main Calendar-->
+        <div class="Header">
+            <div class="arrow" id ="prev">⬅️</div>
+            <div id="Month-Year"> <!--Display Month and Year-->
+                <span id="CurrentMonth"></span> <span id="CurrentYear"></span>
+            </div>  
+            <div class="arrow" id ="next">➡️</div>
+        </div>
+        <div class="Days">
+            <div>SUN</div><div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div>
+        </div>
+        <div class="Dates" id="Dates"></div>
+        <div id="displayDate"></div>
+        <p id="selected"></p>
+    </div>
+
+
+
+
+    <script>
+        const Months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+
+        const Dates = document.getElementById("Dates");
+        const MonthYear = document.getElementById("Month-Year");
+        const CurrentMonth = document.getElementById("CurrentMonth");
+        const CurrentYear = document.getElementById("CurrentYear");
+        const display= document.getElementById("displayDate")
+
+        let today = new Date();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        let selectedDate=null;
+
+        function renderCalendar(month,year){
+            CurrentMonth.textContent = Months[month];
+            CurrentYear.textContent = year
+
+            Dates.innerHTML="";
+
+            // Update the month and year text
+            const firstDay = new Date(year,month,1).getDay();
+            const totalDays = new Date(year,month+1,0).getDate();
+
+            // Padding for empty boxes before start
+            for (let i=0; i< firstDay; i++) {
+                const empty = document.createElement('div');
+                Dates.appendChild(empty);
+            }
+
+            for (let i=1; i<=totalDays; i++) {
+                const date = document.createElement('div');
+                date.textContent = i;
+
+                // Highlight selected
+                if (selectedDate && selectedDate.getFullYear() === year && 
+                    selectedDate.getMonth() === month && selectedDate.getDate() === i) {
+                        date.classList.add("selected")
+                }
+
+                date.addEventListener("click", () => {
+                    selected = new Date(year,month,i);
+                    display.textContent = `${i}-${month+1}-${year}`;
+                    renderCalendar(month,year);
+                });
+                Dates.appendChild(date);
+            }
+        }
+        renderCalendar(month, year);
+    </script>
+</body>
+</html>

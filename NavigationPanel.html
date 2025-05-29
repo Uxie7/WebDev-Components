@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .navbar{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background:rgb(25, 16, 90);
+            color:whitesmoke;
+            width:100%;
+            height:85px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius:10px;
+        }
+        .logo{
+            height:60px;
+            width:60px;
+            margin-left: 10px;;
+            margin-right: 10px;
+            border:1.5px solid rgb(255, 255, 255);
+            border-radius: 5px;
+        }
+        .site{
+            font-size:20px;
+            font-weight:200;
+            margin-right: auto;
+        }
+        .nav-items{
+            display:flex;
+            align-items: center;
+            gap:20px;
+            padding-right: 20px;
+        }
+        .nav-items a{
+            text-decoration: none; /* removes underline */
+            color:white;
+            font-weight:500;
+        }
+        .nav-items a:hover{
+            background-color: rgb(179, 207, 233);
+            color:black;
+            padding: 5px;
+            border-radius: 5px;
+            transition: 0.3sec;
+        }
+        .btn{
+            padding: 8px 10px;
+            background-color:#347ff7;
+            border: none;
+            border-radius: 7px;
+            color:white ;
+            font-weight: 300;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover{
+            background-color: #1d5de8;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="logo" src="logo.jpg" alt="Logo"/>
+        <span class="site">App</span>
+
+        <div class="nav-items">
+            <a href="#">Home</a>
+            <a href="#">Overview</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <button class="btn">Login</button>
+            <button class="btn">SignUp</button>
+        </div>
+    </nav>
+
+</body>
+</html>
